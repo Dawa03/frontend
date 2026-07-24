@@ -4,9 +4,7 @@ addEventListener("DOMContentLoaded", async function () {
     const urlParams = new URLSearchParams(window.location.search)
     const songID = urlParams.get("id")
 
-    const response = await fetch(
-        "http://localhost:3000/api/songs/" + songID
-    )
+    const response = await fetch("http://localhost:3000/api/songs/" + songID)
 
     if (response.ok) {
         const song = await response.json()
