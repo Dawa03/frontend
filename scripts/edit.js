@@ -1,10 +1,14 @@
 addEventListener("DOMContentLoaded", async function () {
-    document.querySelector("#updateBtn").addEventListener("click", updateSong)
+    document
+        .querySelector("#updateBtn")
+        .addEventListener("click", updateSong)
 
     const urlParams = new URLSearchParams(window.location.search)
     const songID = urlParams.get("id")
 
-    const response = await fetch("http://localhost:3000/api/songs/" + songID)
+    const response = await fetch(
+        "https://backend-1-cmt4.onrender.com/api/songs/" + songID
+    )
 
     if (response.ok) {
         const song = await response.json()
@@ -37,7 +41,7 @@ async function updateSong() {
     }
 
     const response = await fetch(
-        "http://localhost:3000/api/songs/" + songID,
+        "https://backend-1-cmt4.onrender.com/api/songs/" + songID,
         {
             method: "PUT",
             headers: {
