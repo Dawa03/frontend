@@ -7,7 +7,7 @@ addEventListener("DOMContentLoaded", async function () {
     const songID = urlParams.get("id")
 
     const response = await fetch(
-        "https://backend-1-cmt4.onrender.com/api/songs/" + songID
+        `${API_BASE_URL}/songs/${songID}`
     )
 
     if (response.ok) {
@@ -41,7 +41,7 @@ async function updateSong() {
     }
 
     const response = await fetch(
-        "https://backend-1-cmt4.onrender.com/api/songs/" + songID,
+        `${API_BASE_URL}/songs/${songID}`,
         {
             method: "PUT",
             headers: {

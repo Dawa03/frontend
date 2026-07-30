@@ -11,11 +11,12 @@ async function addsong() {
         releaseDate: document.querySelector("#released").value,
         popularity: document.querySelector("#popularity").value,
         genre: document.querySelector("#genre").value
-            ? document.querySelector("#genre").value.split(",")
-            : []
+            ? document.querySelector("#genre").value.split(",").map(item => item.trim())
+            : [],
+        username: localStorage.getItem("uname")
     }
 
-    const response = await fetch("https://backend-1-cmt4.onrender.com/api/songs", {
+    const response = await fetch(`${API_BASE_URL}/songs`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
